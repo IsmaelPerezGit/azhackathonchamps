@@ -4,11 +4,29 @@
 }
 
 .header{
-  height: 20vh;
+  height: 10vh;
   background-color: orange;
 }
 
-.jumbotronspace {
-  height: 80vh;
+.jumbotron {
+  height: 100%;
   /*jumbogoes here*/
+  margin-bottom: 0;
+}
+.row{
+  /*margin-top: 0*/
+  background-color: red;
+  height: 200px;
+}
+.x {
+  background-color: brown;
+  height: 100%;
+}
+.space{
+  height: 100%;
+}
+.heart{
+  background-color: purple;
+  height: 100%;
+
 }
