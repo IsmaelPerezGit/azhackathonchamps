@@ -1,4 +1,14 @@
-.test {
+.mainbody {
   background-color: black;
-  height: 300px;
+  height: 60vh;
+}
+
+.header{
+  height: 20vh;
+  background-color: orange;
+}
+
+.jumbotronspace {
+  height: 80vh;
+  /*jumbogoes here*/
 }

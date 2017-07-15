@@ -1,5 +1,5 @@
 function readyFn(jQuery) {
-  console.log("ready set tinder yo music")
+  console.log("ready, set, tinder yo music")
 
 
 
