@@ -4,7 +4,7 @@ let User = mongoose.model('User');
 module.exports = {
   addSong: (req, res)=>{
     User.findOne({_id:req.session.user}, (err, user)=>{
-      user.songList.push(req.body.songId);
+      user.songList.push(req.body.song);
       user.save((err)=>{
         if(err){
           console.log(err);
