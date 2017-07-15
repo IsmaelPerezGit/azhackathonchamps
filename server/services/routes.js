@@ -4,9 +4,9 @@ module.exports = (app)=>{
   app.get('/connect', users.connect);
   app.post('/users', users.create);
   app.post('/users/login', users.login);
-  app.use(authentication);
+  // app.use(authentication);
   app.post('/addsong', songs.addSong);
-  app.get('/songs', songs.getSongs)
+  app.post('/songs', songs.getSongs)
 }
 function authentication(req, res, next){
   if(req.session.user){

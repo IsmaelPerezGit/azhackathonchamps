@@ -1,5 +1,5 @@
 .mainbody {
-  background-color: black;
+  background-color: white;
   height: 60vh;
 }
 
@@ -8,25 +8,55 @@
   background-color: orange;
 }
 
-.jumbotron {
+.mainbody .jumbotron {
   height: 100%;
   /*jumbogoes here*/
   margin-bottom: 0;
+  position: relative;
+  border-radius: 0;
 }
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .3s ease;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.jumbotron:hover .overlay {
+  opacity: 1;
+}
+
+.text {
+  color: white;
+}
+
 .row{
   /*margin-top: 0*/
-  background-color: red;
+  background-color: white;
   height: 200px;
 }
 .x {
-  background-color: brown;
   height: 100%;
 }
+
 .space{
   height: 100%;
 }
 .heart{
-  background-color: purple;
   height: 100%;
+}
 
+.thumbs {
+  text-align: center;
+  margin-top: 15%;
+}
+.fa {
+  font-size: 150px;
 }

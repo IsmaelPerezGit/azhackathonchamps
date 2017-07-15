@@ -1,20 +1,6 @@
-function readyFn(jQuery) {
-  console.log("ready, set, tinder yo music")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}
-$(window).on("load", readyFn);
+$(document).ready(()=>{
+  alert();
+  $.get('http://localhost:5800/connect', (data)=>{
+    console.log(data);
+  })
+})

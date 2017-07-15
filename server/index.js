@@ -8,7 +8,7 @@ var sessionConfig = {
   secret: 'fdljafsjldf',
   resave: false,
   saveUninitialized: true,
-  name: 'partyUpCOokie',
+  name: 'fsadsadf',
   cookie: {
     secure: false,
     httpOnly: false,

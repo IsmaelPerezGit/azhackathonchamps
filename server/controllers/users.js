@@ -10,9 +10,7 @@ module.exports = {
         console.log(err);
       }else{
         console.log('user saved', user);
-        req.session.user = user._id;
-        console.log(req.session.user);
-        res.status(200).send();
+        res.json(user)
       }
     })
   },
@@ -20,8 +18,7 @@ module.exports = {
     User.findOne({email:req.body.email}, (err, user)=>{
       let test = user.comparePassword(req.body.password, (err, isMatch)=>{
         if(isMatch){
-          req.session.user = user._id;
-          res.status(200).send();
+          res.json(user)
         }else{
           res.status(401).send();
         }

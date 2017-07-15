@@ -3,7 +3,7 @@ let request = require('request');
 let User = mongoose.model('User');
 module.exports = {
   addSong: (req, res)=>{
-    User.findOne({_id:req.session.user}, (err, user)=>{
+    User.findOne({_id:req.body.user}, (err, user)=>{
       user.songList.push(req.body.song);
       user.save((err)=>{
         if(err){
@@ -15,7 +15,7 @@ module.exports = {
     })
   },
   getSongs: (req, res)=>{
-    User.findOne({_id:req.session.user}, (err, user)=>{
+    User.findOne({_id:req.body.user}, (err, user)=>{
       console.log(user.songList);
       res.json(user.songList)
     })

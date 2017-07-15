@@ -4,10 +4,53 @@
 <head>
   <meta charset="utf-8">
   <title>stuff</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="./azhackathonchamps.css">
+  <script type="text/javascript" src="./jquerysession.js"></script>
+  <script type="text/javascript">
+  $(document).ready(()=>{
+    let current;
+    $.session.set("test", "test")
+    let getSong = ()=>{
+      $.get('http://localhost:5800/connect', (data)=>{
+        current = data;
+        console.log(data);
+        $('.text').empty();
+        $('.jumbotron').css({'background': `url(${data.album.images[0].url})`, 'background-size': 'cover'});
+        let title = $(`<h1>${data.name}</h1>`)
+        let artist = $(`<h1>${data.artists[0].name}</h1>`)
+        $('.text').append(title).append(artist)
+      })
+    }
+
+    let saveSong = ()=>{
+      $.post('http://localhost:5800/addsong', {user:$.session.get("user") ,song: {name:current.name, image:current.album.images[0].url, url:current.external_urls.spotify}}, (data)=>{
+        console.log("saved");
+      })
+    }
+
+    getSong();
+
+    $('#click').click((e)=>{
+      window.open(current.external_urls.spotify);
+    })
+
+    $('#deny').click((e)=>{
+      getSong();
+    })
+
+    $('#accept').click((e)=>{
+      saveSong();
+      getSong();
+
+    })
+
+  })
+
+  </script>
 </head>
 
 <body>
@@ -20,18 +63,25 @@
 
     </div>
     <div class="col-md-6 mainbody">
-      <div class="jumbotron">
-        <h1>Bootstrap Tutorial</h1>
+      <div id="click" class="jumbotron">
+        <div class="overlay">
+          <div class="text">
+
+          </div>
+        </div>
       </div>
       <div class="row">
         <div class=" x col-md-5">
-
+          <div class="thumbs">
+            <i id="deny" class="fa fa-thumbs-down" aria-hidden="true"></i>
+          </div>
         </div>
         <div class=" space col-md-2">
-
         </div>
         <div class=" heart col-md-5">
-
+          <div class="thumbs">
+            <i id="accept" class="fa fa-thumbs-up" aria-hidden="true"></i>
+          </div>
         </div>
       </div>
     </div>
@@ -41,8 +91,6 @@
   </div>
 
 
-  <script type="text/javascript" src="./azhackathonchamps.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-</body>
+  </body>
 
 </html>
