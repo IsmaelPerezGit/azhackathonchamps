@@ -10,6 +10,7 @@ module.exports = {
         console.log(err);
       }else{
         console.log('user saved', user);
+        req.session.user = user._id;
         res.status(200).send();
       }
     })
