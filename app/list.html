@@ -4,24 +4,37 @@
     <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+     <link rel="stylesheet" href="./assets/css/list.css"> 
+    
+  </head>
+  <body>
+    <div class="header"></div>
+      <div class="container-fluid page-header">
+        <center>
+          <h2 class="center">My Songs</h2>
+        </center>
+      </div>
+    <div class="container-fluid">
+      
+        <div id="list">
+      </div>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vibrant.js/1.0.0/Vibrant.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./azhackathonchamps.css">
     <script type="text/javascript" src="./jquerysession.js"></script>
     <script type="text/javascript">
       $(document).ready(()=>{
         $.post('http://localhost:5800/songs', {user:$.session.get('user')}, (data)=>{
           for (var item of data) {
-            $('#list').append(`<img src="${item.image}" alt=""> <h3>${item.name}</h3> - <b>${item.url}</b>`)
+            
+
+            $('#list').append(`<div class="row"><figure><h3 class="songInfo"><b>${item.name}</b></h3> <img class="albumImg" src="${item.image}" alt=""></figure></div>`)
+
           }
         })
       })
     </script>
-  </head>
-  <body>
-    <div id="list">
-
-    </div>
   </body>
 </html>

@@ -1,0 +1,13 @@
+.albumImg {
+  display: block;
+  margin: auto;
+  height: 33vh;
+}
+.songInfo {
+  text-align: center;
+}
+
+.header{
+  height: 10vh;
+  background-color: orange;
+}
