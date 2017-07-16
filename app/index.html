@@ -20,6 +20,7 @@
         console.log(data);
         $('.text').empty();
         $('.jumbotron').css({'background': `url(${data.album.images[0].url})`, 'background-size': 'cover'});
+        $('.fullbody').css({'background': `url(${data.album.images[0].url})`, 'background-size': 'cover'});
         let title = $(`<h1>${data.name}</h1>`)
         let artist = $(`<h1>${data.artists[0].name}</h1>`)
         $('.text').append(title).append(artist)
@@ -53,12 +54,16 @@
   </script>
 </head>
 
-<body>
-  <div class="header">
-
+<body class='container-fluid'>
+  <div class='row'>
+    <div class="header1 col-med-12 ">
+      <i class="fa fa-headphones" aria-hidden="true"></i>
+    </div>
   </div>
 
-  <div class="container">
+
+  <div class="fullbody">
+    <div id="overlay">
     <div class="col-md-3">
 
     </div>
@@ -87,6 +92,7 @@
     </div>
     <div class="col-md-3">
 
+    </div>
     </div>
   </div>
 
