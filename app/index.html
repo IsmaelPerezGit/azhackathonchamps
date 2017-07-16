@@ -20,6 +20,7 @@
         console.log(data);
         $('.text').empty();
         $('.jumbotron').css({'background': `url(${data.album.images[0].url})`, 'background-size': 'cover'});
+        $('.fullbody').css({'background': `url(${data.album.images[0].url})`, 'background-size': 'cover'});
         let title = $(`<h1>${data.name}</h1>`)
         let artist = $(`<h1>${data.artists[0].name}</h1>`)
         $('.text').append(title).append(artist)
@@ -53,12 +54,21 @@
   </script>
 </head>
 
-<body>
-  <div class="header">
-
+<body class='container-fluid'>
+  <div class='row'>
+    <div class="header1 col-med-12 ">
+      <a href="http://localhost:8080/list"><i class="fa fa-headphones" aria-hidden="true"></i></a>
+    </div>
   </div>
 
+<<<<<<< HEAD
   <div class="container-fluid">
+=======
+<div class="row">
+
+  <div class="fullbody">
+    <div id="overlay">
+>>>>>>> 0db3b82e86840e7e56c6ffd18b019e4b76eb5adf
     <div class="col-md-3">
 
     </div>
@@ -71,13 +81,13 @@
         </div>
       </div>
       <div class="row">
-        <div class=" x col-md-5">
+        <div class=" x col-md-5 col-md-offset-1">
           <div class="thumbs">
             <i id="deny" class="fa fa-thumbs-down" aria-hidden="true"></i>
           </div>
         </div>
-        <div class=" space col-md-2">
-        </div>
+          <!-- <div class=" space col-md-2">
+          </div> -->
         <div class=" heart col-md-5">
           <div class="thumbs">
             <i id="accept" class="fa fa-thumbs-up" aria-hidden="true"></i>
@@ -85,8 +95,11 @@
         </div>
       </div>
     </div>
+
+  </div>
     <div class="col-md-3">
 
+    </div>
     </div>
   </div>
 
